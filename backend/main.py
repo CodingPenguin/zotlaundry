@@ -6,6 +6,7 @@ from pymongo import MongoClient
 from dotenv import load_dotenv
 
 from routers.get import handle_get_machines
+from routers.patch import handle_patch_machines
 
 load_dotenv()
 
@@ -19,15 +20,25 @@ app = Flask(__name__)
 @app.route("/machines", methods=['GET', 'POST', 'PATCH'])
 def handle_reqs():
     if request.method == 'GET':
-        data = json.loads(request.data)
-        found_machines = tuple(handle_get_machines(machines, data))
-        return jsonify(found_machines), 200
+        try:
+            data = json.loads(request.data)
+            return jsonify(handle_get_machines(machines, data)), 200
+        except Exception as e:
+            logger.error(e)
+            return jsonify(e), 500
+        
     elif request.method == 'POST':
         handle_post_machines(machines, request)
+        
     elif request.method == 'PATCH':
-        handle_patch_machines(machines, query, update)
+        try:
+            data = json.loads(request.data)
+            return jsonify(handle_patch_machines(machines, data)), 200
+        except Exception as e:
+            logger.error(e)
+            return jsonify(e), 500
     else:
-        abort(405)
+        return 'No. Method. Not. Allowed.', 405
 
 if __name__ == "__main__":
     app.run()
