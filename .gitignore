@@ -1,7 +1,2 @@
 # for frontend
 frontend/node_modules/*
-
-# for backend
-backend/env/*
-backend/.env
-*/__pycache__/*
