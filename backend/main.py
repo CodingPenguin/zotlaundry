@@ -1,6 +1,7 @@
 import os, uuid, json
 from loguru import logger
-from flask import Flask, jsonify, request, abort
+from flask import Flask, jsonify, request
+from flask_cors import CORS
 from pymongo import MongoClient
 
 from dotenv import load_dotenv
@@ -17,6 +18,7 @@ db = mongo.main
 machines = db.machines
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route("/machines", methods=['GET', 'POST', 'PATCH'])
 def handle_reqs():
