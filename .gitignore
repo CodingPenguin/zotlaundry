@@ -1,3 +1,5 @@
 # for frontend
-node_modules/*
+frontend/node_modules/*
 
+# for backend
+backend/env/*
