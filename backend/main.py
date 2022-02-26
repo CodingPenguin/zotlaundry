@@ -9,7 +9,7 @@ from routers.get import handle_get_machines
 from routers.patch import handle_patch_machines
 
 load_dotenv()
-
+print(os.getenv('MONGO_URL'))
 mongo = MongoClient(os.getenv('MONGO_URL'))
 
 db = mongo.main
