@@ -1,0 +1,28 @@
+html, body {
+    background: #a0ba38;
+    overflow: hidden;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    background: white;
+    border: solid;
+    border-radius: 15px;
+    border-color: black;
+    --box-width: 60vh;
+    --box-height: 70vh;
+    width: var(--box-width);
+    height: var(--box-height);
+    padding: 2%;
+    margin: 2%;
+}
+
+.box-table {
+    width: 100%;
+    height: 80%;
+}
