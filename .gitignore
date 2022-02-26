@@ -3,3 +3,5 @@ frontend/node_modules/*
 
 # for backend
 backend/env/*
+backend/.env
+backend/__pycache__/*
