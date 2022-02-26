@@ -23,9 +23,9 @@ def handle_reqs():
         found_machines = tuple(handle_get_machines(machines, data))
         return jsonify(found_machines), 200
     elif request.method == 'POST':
-        handle_post_machines(request)
+        handle_post_machines(machines, request)
     elif request.method == 'PATCH':
-        handle_patch_machines(request)
+        handle_patch_machines(machines, query, update)
     else:
         abort(405)
 
