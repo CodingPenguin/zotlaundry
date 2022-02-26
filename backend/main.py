@@ -21,9 +21,9 @@ def handle_reqs():
         data = json.loads(request.data)
         return handle_get_machines(machines, data)
     elif request.method == 'POST':
-        handle_post_machines(request)
+        handle_post_machines(machines, request)
     elif request.method == 'PATCH':
-        handle_patch_machines(request)
+        handle_patch_machines(machines, query, update)
     else:
         abort(405)
 
