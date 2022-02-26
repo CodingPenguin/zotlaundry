@@ -6,7 +6,7 @@ from pymongo import MongoClient
 from dotenv import load_dotenv
 
 load_dotenv()
-
+print(os.getenv('MONGO_URL'))
 mongo = MongoClient(os.getenv('MONGO_URL'))
 
 db = mongo.main
