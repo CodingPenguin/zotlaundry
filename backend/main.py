@@ -6,6 +6,7 @@ from pymongo import MongoClient
 from dotenv import load_dotenv
 
 from routers.get import handle_get_machines
+from routers.post import handle_post_machines
 from routers.patch import handle_patch_machines
 
 load_dotenv()
@@ -28,7 +29,13 @@ def handle_reqs():
             return jsonify(e), 500
         
     elif request.method == 'POST':
-        handle_post_machines(machines, request)
+        try:
+            data = json.loads(request.data)
+            logger.debug(data)
+            return jsonify(handle_post_machines(machines, data)), 201
+        except Exception as e:
+            logger.error(e)
+            return jsonify(e), 500
         
     elif request.method == 'PATCH':
         try:
