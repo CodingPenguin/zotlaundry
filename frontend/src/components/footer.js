@@ -20,7 +20,7 @@ export default function Footer () {
             transition: "transform 500ms ease-in",
             bottom: 0,
             left: 0,}}>
-            <p style={{ color:"white" }}>
+            <p style={{ color:"white", marginTop:"10px", marginBottom: "10px"}}>
                 <Typography variant="body2" align="center">
                     {'Copyright © '}
                     <Link color="inherit" href="/">
