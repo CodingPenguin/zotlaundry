@@ -3,7 +3,9 @@ import { Button } from "react-bootstrap"
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 // import axios from "axios"
-import brand from "./ZotLaundry-white.png";
+import brand from "./ZotLaundry.png";
+import brandWhite from "./ZotLaundry-white.png";
+
 
 export default function HomePage(){
     const [inputField, setInputField] = useState({
@@ -50,7 +52,7 @@ export default function HomePage(){
                 <div class="row">
                     <div class="form-holder">
                         <a href="/">
-                            <img style={{ height:"23vh"}} src={brand} alt="None"></img>
+                            <img style={{ height:"23vh"}} src={brandWhite} alt="None"></img>
                         </a>
                         <div class="form-content">
                             <div class="form-items">
@@ -85,7 +87,7 @@ export default function HomePage(){
                     </div>
                 </div>
             </div>
-        </div>;
+        </div>
         </>
 
     )
