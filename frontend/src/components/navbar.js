@@ -13,7 +13,7 @@ export default function NavBar(){
         <Navbar className="navigation" bg="white" variant="light" expand="sm">
 
             <a href="/">
-                    <img style={{ height:"60px"}} src={brand} alt="None"></img>
+                <img style={{ height:"60px"}} src={brand} alt="None"></img>
             </a>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
