@@ -47,6 +47,11 @@ html, body {
     text-transform: capitalize !important;
 }
 
+.button-modal {
+    background-color: #fac04d !important;
+    margin: 5px !important;
+}
+
 #divider {
     margin: 1%
 }

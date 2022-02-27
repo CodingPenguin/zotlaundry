@@ -28,6 +28,7 @@ export default function Footer () {
                     </Link>{' '}
                     {new Date().getFullYear()}
                     {'.'}
+                    {' CodingPenguins, Inc. All rights reserved.'}
                 </Typography>
             </p>
         </div>
