@@ -48,7 +48,7 @@ export default function HomePage(){
     
     return(
         <>
-        <div style={{backgroundColor:"green", maxHeight : "90vh"}}>
+        <div style={{maxHeight : "90vh"}}>
 
             <div class="form-body">
                 <div class="row">
