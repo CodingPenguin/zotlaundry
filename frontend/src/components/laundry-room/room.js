@@ -82,9 +82,7 @@ return (
           </div>
         </div>
         <div className="flex-center">
-          <Button variant="contained" className="button-form">Add Machine</Button>
-          <div id="divider"></div>
-          <Button variant="contained" className="button-form">Update Machine</Button>
+          <Button variant="contained" className="button-form">Add/Update Machine</Button>
         </div>
       </div>
     );
