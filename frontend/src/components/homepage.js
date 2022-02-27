@@ -1,6 +1,7 @@
 import "./initialpage.css";
 import { Card, Jumbotron } from "react-bootstrap"
 import { useState } from "react";
+import axios from "axios"
 
 export default function HomePage(){
     const [inputField, setInputField] = useState({
@@ -13,13 +14,20 @@ export default function HomePage(){
     }
 
     console.log(inputField)
+    
     const submit = (e) => {
         e.preventDefault()
-        
-        console.log(5)
-        fetch("http://127.0.0.1:5000/machine")
+        let url = `http://127.0.0.1:5000/machines?community=${inputField.community}&floor=${inputField.floor}`
+        console.log(url)
+        axios.get(url)
             .then(response => console.log(response.json()))
+            .catch(error => console.log(error))
+        localStorage.setItem("inputField", JSON.stringify(inputField))
+        // axios.post(url)
+        //     .then(response => console.log(response.json()))
 
+        // axios.patch(url)
+        //     .then(response => console.log(response.json()))
         
     }
     
