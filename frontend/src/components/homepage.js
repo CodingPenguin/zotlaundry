@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import brand from "./ZotLaundry.png";
 import brandWhite from "./ZotLaundry-white.png";
 
+
 export default function HomePage(){
     const [inputField, setInputField] = useState({
         community: "",
