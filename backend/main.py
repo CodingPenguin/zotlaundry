@@ -28,7 +28,10 @@ def handle_reqs():
             
             if 'floor' in query:
                 query['floor'] = int(query['floor'])
-                
+            
+            elif 'number' in query:
+                query['number'] = int(query['number'])
+            
             return jsonify(handle_get_machines(machines, query)), 200
         
         except Exception as e:

@@ -24,8 +24,8 @@ const washColumns = [
     flex: 0
   },
   {
-    field: 'startTime',
-    headerName: 'Time Start',
+    field: 'timeStarted',
+    headerName: 'Start Time',
     type: 'number', 
     flex: 0
   },
@@ -41,7 +41,7 @@ const dryColumns = [
   { field: 'number', headerName: 'Number', flex: 0 },
   { field: 'state', headerName: 'Status', flex: 0 },
   {
-    field: 'startTime',
+    field: 'timeStarted',
     headerName: 'Start Time',
     type: 'number', 
     flex: 0
@@ -85,15 +85,29 @@ export default function LaundryPage() {
       for (let i = 0; i < data.length; i++) {
         data[i]['state'] = data[i]['state'][0].toUpperCase() + data[i]['state'].substring(1)
 
-        const finishedTime = data[i]['startTime'] + data[i]['remainingTime']; // time needs to be in ms
+        const finishedTime = data[i]['timeStarted'] + (data[i]['remainingTime'] * 60000); // time needs to be in ms
         const currentTime = new Date().getTime();
-        const realRemainingTime = (finishedTime - currentTime) / 60000
+        let realRemainingTime = Math.ceil((parseInt(finishedTime) - parseInt(currentTime)) / 60000)
+
+        let realTimeStarted = new Date(data[i]['timeStarted']).toLocaleTimeString('en-US', {hour: 'numeric', minute: 'numeric'})
+        
+        if (data[i]['state'] === 'Empty') {
+          realRemainingTime = 0
+          realTimeStarted = 'N/A'
+        } else if (data[i]['state'] === 'Full') {
+          realRemainingTime = 0
+        } else if (data[i]['realRemainingTime'] === 0) {
+          data[i]['state'] = 'Full'
+        }
+        if (realRemainingTime < 0) {
+          realRemainingTime = 0
+        }
 
         let machine = {
           id: data[i]['_id'],
           number: data[i]['number'],
           state: data[i]['state'],
-          startTime: data[i]['startTime'],
+          timeStarted: realTimeStarted,
           remainingTime: realRemainingTime,
         }
     
@@ -116,7 +130,74 @@ export default function LaundryPage() {
       .then(
         response => addMachineData(response['data'])
       )
+
+    setModalInput(prev => ({
+        ...prev,
+        'community': query['community'],
+        'floor': query['floor']
+      }) 
+    )
   }, []);
+
+  const [modalInput, setModalInput] = useState({
+    
+  });
+
+  const modalInputsHandler = (e) =>{
+    setModalInput(prev => ({...prev, [e.target.name]: e.target.value}) )
+    console.log(modalInput);
+}
+
+
+  function modalPost(q) {
+    console.log(q)
+    axios.post('http://127.0.0.1:5000/machines', q)
+      .then(
+        response => {
+          console.log(response)
+          window.location.reload(false);
+        }
+      )
+
+  }
+
+  function modalPatch(q) {
+    console.log(q);
+    axios.patch('http://127.0.0.1:5000/machines', q)
+      .then(
+        response => {
+          console.log(response)
+          window.location.reload(false);
+        }
+      )
+  }
+
+  function modalSubmit(e) {
+    const current_date = new Date().getTime()
+    const modalQuery = {
+      'community': modalInput.community,
+      'floor': parseInt(modalInput.floor),
+      'number': parseInt(modalInput.number),
+      'state': modalInput.state,
+      'type': modalInput.type,
+      'timeStarted': current_date,
+      'remainingTime': parseInt(modalInput.remainingTime)
+    }
+    console.log(modalQuery);
+    const url = `http://127.0.0.1:5000/machines?community=${modalQuery['community']}&floor=${modalQuery['floor']}&number=${modalQuery['number']}&type=${modalQuery['type']}`;
+    axios.get(url)
+      .then(
+        response => {
+          console.log(response['data'].length)
+          console.log(response['data'])
+          if (response['data'].length === 0) {
+            modalPost(modalQuery)
+          } else {
+            modalPatch(modalQuery)
+          }
+        }
+      )
+  }
 
   return (
      <>
@@ -160,35 +241,29 @@ export default function LaundryPage() {
           <Modal.Body>
             <form novalidate>
 
-              <h3 class="modal-headers">Device Number</h3>
+              <h3 class="modal-headers">Number</h3>
               <div class="col-md-8">
-                  <input class="form-control" type="number" name="device-number"
-                      placeholder="Enter device number" required/>
+                  <input class="form-control" type="number" name="number" placeholder="Enter device number" onChange={modalInputsHandler} required/>
               </div>
 
 
               <h3 class="modal-headers">Type</h3>
-              <input type="radio" class="btn-check" name="device-type" id="new-washer" autocomplete="off"
-                  required/>
-              <label class="btn btn-sm btn-outline-secondary left" for="new-washer">Washer</label>
+              <input type="radio" class="btn-check" name="type" value="washer" id="new-washer" autocomplete="off" onChange={modalInputsHandler} required/>
+              <label class="btn btn-sm btn-outline-secondary left" for="new-washer">New Washer</label>
 
-              <input type="radio" class="btn-check" name="device-type" id="new-dryer" autocomplete="off"
-                  required/>
-              <label class="btn btn-sm btn-outline-secondary" for="new-dryer">Dryer</label>
+              <input type="radio" class="btn-check" name="type" value="dryer" id="new-dryer" autocomplete="off" onChange={modalInputsHandler} required/>
+              <label class="btn btn-sm btn-outline-secondary" for="new-dryer">New Dryer</label>
 
 
               <h3 class="modal-headers">Status</h3>
 
-              <input type="radio" class="btn-check" name="device-state" id="empty" autocomplete="off"
-                  required/>
+              <input type="radio" class="btn-check" name="state" value="empty" id="empty" autocomplete="off" onChange={modalInputsHandler} required/>
               <label class="btn btn-sm btn-outline-secondary left" for="empty">Empty</label>
 
-              <input type="radio" class="btn-check" name="device-state" id="running" autocomplete="off"
-                  required/>
+              <input type="radio" class="btn-check" name="state" value="running" id="running" autocomplete="off" onChange={modalInputsHandler} required/>
               <label class="btn btn-sm btn-outline-secondary left" for="running">Running</label>
 
-              <input type="radio" class="btn-check" name="device-state" id="full" autocomplete="off"
-                  required/>
+              <input type="radio" class="btn-check" name="state" value="full" id="full" autocomplete="off" onChange={modalInputsHandler} required/>
               <label class="btn btn-sm btn-outline-secondary" for="full">Full</label>
 
               {/* <h3 class="modal-headers">Time Started</h3>
@@ -201,8 +276,7 @@ export default function LaundryPage() {
               <h3 class="modal-headers">Remaining Time</h3>
 
               <div class="col-md-8">
-                  <input class="form-control" type="text" name="rem-time"
-                      placeholder="Enter time in minutes" required/>
+                  <input class="form-control" type="text" name="remainingTime" onChange={modalInputsHandler} placeholder="Enter remaining time in minutes" required/>
               </div>
             </form>
 
@@ -211,7 +285,7 @@ export default function LaundryPage() {
             <Button variant="secondary" className='button-modal' onClick={handleClose}>
               Close
             </Button>
-            <Button variant="primary" className='button-modal' onClick={handleClose}>
+            <Button variant="primary" className='button-modal' type='submit' onClick={(e) => {modalSubmit(e); handleClose()}}>
               Submit
             </Button>
           </Modal.Footer>
