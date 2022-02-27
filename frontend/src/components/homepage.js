@@ -2,6 +2,7 @@ import "./initialpage.css";
 import { Card, Jumbotron } from "react-bootstrap"
 import { useState } from "react";
 import axios from "axios"
+import brand from "./ZotLaundry.png"
 
 export default function HomePage(){
     const [inputField, setInputField] = useState({
@@ -38,7 +39,9 @@ export default function HomePage(){
             <div class="form-body">
                 <div class="row">
                     <div class="form-holder">
-                    <h1 style={{ color:"White" }}>ZotLaundry Website</h1>
+                        <a href="/">
+                            <img style={{ height:"23vh"}} src={brand} alt="None"></img>
+                        </a>
                         <div class="form-content">
                             <div class="form-items">
                                 <h3>Laundry Room Selector</h3>
