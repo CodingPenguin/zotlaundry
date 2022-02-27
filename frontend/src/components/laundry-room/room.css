@@ -52,6 +52,11 @@ html, body {
     margin: 5px !important;
 }
 
+.modal-headers {
+    padding: 5px 0;
+    font-weight: normal;
+}
+
 #divider {
     margin: 1%
 }

@@ -65,7 +65,7 @@ export default function LaundryPage() {
 
 return (
       <>
-      <div style = {{maxHeight : "80vh", overflow : 'scroll'}}>
+      <div style = {{maxHeight : "80vh", 'overflow-y' : 'scroll'}}>
         <div class="flex-bottom-middle">
           <h1 className='header'>Current Machines</h1>
         </div>
@@ -99,30 +99,29 @@ return (
   
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title>Machine Selection</Modal.Title>
+            <Modal.Title>Edit/Add Machine</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <h3>Edit / Add Machine</h3>
             <form novalidate>
 
-              <h3>Device number</h3>
+              <h3 class="modal-headers">Device Number</h3>
               <div class="col-md-8">
                   <input class="form-control" type="number" name="device-number"
                       placeholder="Enter device number" required/>
               </div>
 
 
-              <h3>Device type</h3>
+              <h3 class="modal-headers">Device Type</h3>
               <input type="radio" class="btn-check" name="device-type" id="new-washer" autocomplete="off"
                   required/>
-              <label class="btn btn-sm btn-outline-secondary" for="new-washer">New Washer</label>
+              <label class="btn btn-sm btn-outline-secondary" for="new-washer">Washer</label>
 
               <input type="radio" class="btn-check" name="device-type" id="new-dryer" autocomplete="off"
                   required/>
-              <label class="btn btn-sm btn-outline-secondary" for="new-dryer">New Dryer</label>
+              <label class="btn btn-sm btn-outline-secondary" for="new-dryer">Dryer</label>
 
 
-              <h3>Device state</h3>
+              <h3 class="modal-headers">Device State</h3>
 
               <input type="radio" class="btn-check" name="device-state" id="empty" autocomplete="off"
                   required/>
@@ -136,18 +135,18 @@ return (
                   required/>
               <label class="btn btn-sm btn-outline-secondary" for="full">Full</label>
 
-              <h3 >Time started</h3>
+              <h3 class="modal-headers">Time Started</h3>
 
               <div class="col-md-12">
                   <input class="form-control" type="time" name="start-time" placeholder="9:30" required/>
               </div>
 
 
-              <h3>Remaining time</h3>
+              <h3 class="modal-headers">Remaining Time</h3>
 
               <div class="col-md-8">
                   <input class="form-control" type="text" name="rem-time"
-                      placeholder="Enter remaining time in minutes" required/>
+                      placeholder="Enter time in minutes" required/>
               </div>
             </form>
 
