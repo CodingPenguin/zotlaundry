@@ -1,5 +1,5 @@
 import "./initialpage.css";
-import { Card, Jumbotron } from "react-bootstrap"
+import { Button } from "react-bootstrap"
 import { useState } from "react";
 import axios from "axios"
 import brand from "./ZotLaundry.png"
@@ -10,6 +10,20 @@ export default function HomePage(){
         floor: ""
     })
 
+    function check_all_fields_set(e)
+    {
+        if (inputField.community == "" || inputField.floor == "")
+        {
+            e.preventDefault()
+            alert('You must select a community and floor number before proceeding!')
+        }
+
+        else{
+            // console.log('Here')
+            submit()
+        }
+
+    }
     const inputsHandler = (e) =>{
         setInputField(prev => ({...prev, [e.target.name]: e.target.value}) )
     }
@@ -45,7 +59,7 @@ export default function HomePage(){
                         <div class="form-content">
                             <div class="form-items">
                                 <h3>Laundry Room Selector</h3>
-                                <form class="requires-validation" id="select-community" onSubmit={submit} noValidate>
+                                <form class="requires-validation" noValidate>
 
                                     <input type="radio" class="btn-check" name="community" id="me" value="me" autocomplete="off" onChange={inputsHandler}/>
                                     <label class="btn btn-sm btn-outline-secondary" for="me">Middle Earth</label>
@@ -56,7 +70,7 @@ export default function HomePage(){
 
                                     <div class="col-md-12">
                                         <select name="floor" class="form-select mt-3" onChange={inputsHandler}>
-                                            <option name="floor" value="1">Floor 1</option>
+                                            <option name="floor" value="1">Choose Floor</option>
                                             <option name="floor" value="2">Floor 2</option>
                                             <option name="floor" value="3">Floor 3</option>
                                             <option name="floor" value="4">Floor 4</option>
@@ -67,7 +81,7 @@ export default function HomePage(){
                                     </div>
 
                                     <div class="form-button mt-3">
-                                        <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+                                        <Button onClickid="submit" href="/laundrypage" onClick={check_all_fields_set} type="submit" class="btn btn-primary">Submit</Button>
                                     </div>
                                 </form>
                             </div>
