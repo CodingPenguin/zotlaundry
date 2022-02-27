@@ -191,11 +191,11 @@ export default function LaundryPage() {
                   required/>
               <label class="btn btn-sm btn-outline-secondary" for="full">Full</label>
 
-              <h3 class="modal-headers">Time Started</h3>
+              {/* <h3 class="modal-headers">Time Started</h3>
 
               <div class="col-md-12">
                   <input class="form-control" type="time" name="start-time" placeholder="9:30" required/>
-              </div>
+              </div> */}
 
 
               <h3 class="modal-headers">Remaining Time</h3>
