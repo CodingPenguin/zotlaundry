@@ -60,3 +60,7 @@ html, body {
 #divider {
     margin: 1%
 }
+
+.modal-header {
+    background-color: #fac04d;
+}

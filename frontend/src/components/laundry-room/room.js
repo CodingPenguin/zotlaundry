@@ -155,7 +155,7 @@ export default function LaundryPage() {
   
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title>Edit/Add Machine</Modal.Title>
+            <Modal.Title><h1>Edit/Add Machine</h1></Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <form novalidate>
@@ -167,25 +167,25 @@ export default function LaundryPage() {
               </div>
 
 
-              <h3 class="modal-headers">Device Type</h3>
+              <h3 class="modal-headers">Type</h3>
               <input type="radio" class="btn-check" name="device-type" id="new-washer" autocomplete="off"
                   required/>
-              <label class="btn btn-sm btn-outline-secondary" for="new-washer">Washer</label>
+              <label class="btn btn-sm btn-outline-secondary left" for="new-washer">Washer</label>
 
               <input type="radio" class="btn-check" name="device-type" id="new-dryer" autocomplete="off"
                   required/>
               <label class="btn btn-sm btn-outline-secondary" for="new-dryer">Dryer</label>
 
 
-              <h3 class="modal-headers">Device State</h3>
+              <h3 class="modal-headers">Status</h3>
 
               <input type="radio" class="btn-check" name="device-state" id="empty" autocomplete="off"
                   required/>
-              <label class="btn btn-sm btn-outline-secondary" for="empty">Empty</label>
+              <label class="btn btn-sm btn-outline-secondary left" for="empty">Empty</label>
 
               <input type="radio" class="btn-check" name="device-state" id="running" autocomplete="off"
                   required/>
-              <label class="btn btn-sm btn-outline-secondary" for="running">Running</label>
+              <label class="btn btn-sm btn-outline-secondary left" for="running">Running</label>
 
               <input type="radio" class="btn-check" name="device-state" id="full" autocomplete="off"
                   required/>
