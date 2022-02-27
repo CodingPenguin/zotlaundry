@@ -6,6 +6,7 @@
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     -moz-osx-font-smoothing: grayscale;
+    text-align: center !important;
 }
 
 html, body {
@@ -107,7 +108,7 @@ html, body {
     display: flex;
     justify-content: center;
     border-radius: 5px;
-    background-color: #fac04d;
+    background-color: #fac04d !important;
     outline: none;
     border: 0px;
      box-shadow: none;
