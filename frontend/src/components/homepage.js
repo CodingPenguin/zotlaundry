@@ -33,7 +33,7 @@ export default function HomePage(){
     
     return(
         <>
-        <div style={{overflow: "scroll", backgroundColor:"green", maxHeight : "90vh"}}>
+        <div style={{backgroundColor:"green", maxHeight : "90vh"}}>
 
             <div class="form-body">
                 <div class="row">
@@ -42,8 +42,7 @@ export default function HomePage(){
                         <div class="form-content">
                             <div class="form-items">
                                 <h3>Laundry Room Selector</h3>
-                                <p>Fill in the data below.</p>
-                                <form class="requires-validation"  onSubmit={submit} noValidate>
+                                <form class="requires-validation" id="select-community" onSubmit={submit} noValidate>
 
                                     <input type="radio" class="btn-check" name="community" id="me" value="me" autocomplete="off" onChange={inputsHandler}/>
                                     <label class="btn btn-sm btn-outline-secondary" for="me">Middle Earth</label>

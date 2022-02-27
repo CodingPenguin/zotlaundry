@@ -14,7 +14,6 @@ html, body {
     overflow: hidden;
 }
 
-
 .form-holder {
       display: flex;
       flex-direction: column;
@@ -56,7 +55,7 @@ html, body {
 
 .form-content h3 {
     color: #000000;
-    text-align: left;
+    text-align: center;
     font-size: 28px;
     font-weight: 600;
     margin-bottom: 5px;
@@ -90,10 +89,11 @@ html, body {
     background-color: #fff;
     font-size: 15px;
     font-weight: 300;
-    color: #8D8D8D;
+    color: black;
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
     margin-top: 16px;
+    text-align: center;
 }
 
 .form-button {
@@ -156,4 +156,8 @@ html, body {
 
 .valid-feedback{
    color: #2acc80;
+}
+
+#select-community {
+    text-align: center
 }
