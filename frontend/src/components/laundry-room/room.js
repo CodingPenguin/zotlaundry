@@ -65,7 +65,7 @@ export default function LaundryPage() {
 
 return (
       <>
-      <div style = {{maxHeight : "80vh", 'overflow-y' : 'scroll'}}>
+      <div style = {{maxHeight : "100vh", 'overflow-y' : 'scroll'}}>
         <div class="flex-bottom-middle">
           <h1 className='header'>Current Machines</h1>
         </div>
