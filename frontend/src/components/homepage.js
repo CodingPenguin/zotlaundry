@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap"
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 // import axios from "axios"
-import brand from "./ZotLaundry.png";
+import brand from "./ZotLaundry-white.png";
 
 export default function HomePage(){
     const [inputField, setInputField] = useState({
