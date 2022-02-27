@@ -1,16 +1,16 @@
 import "./initialpage.css";
+import { Card, Jumbotron } from "react-bootstrap"
 
 export default function HomePage(){
 
     return(
-
-        <div>
-            <h1 style={{ color:"White" }}>ZotLaundry Website</h1>
-            <h2 style={{ color:"White" }}>Enter your community and building here!</h2>
+        <>
+        <div style={{overflow: "scroll", backgroundColor:"green", maxHeight : "90vh"}}>
 
             <div class="form-body">
                 <div class="row">
                     <div class="form-holder">
+                    <h1 style={{ color:"White" }}>ZotLaundry Website</h1>
                         <div class="form-content">
                             <div class="form-items">
                                 <h3>Laundry Room Selector</h3>
@@ -45,7 +45,8 @@ export default function HomePage(){
                     </div>
                 </div>
             </div>
-        </div>
+        </div>;
+        </>
 
     )
     
