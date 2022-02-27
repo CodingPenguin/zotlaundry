@@ -1,5 +1,5 @@
 html, body {
-    background: #a0ba38;
+    background: #1295d8;
     overflow: hidden;
 }
 
@@ -12,6 +12,13 @@ html, body {
 .flex-bottom-middle {
     display: flex;
     justify-content: center;
+}
+
+.header {
+    font-size: 70px;
+    padding-top: 20px;
+    color:#fac04d;
+    -webkit-text-stroke: black 1.5px;
 }
 
 .box {
@@ -34,6 +41,8 @@ html, body {
     padding: 2%;
     width: 5%;
     height: 2%;
+    background-color: #fac04d !important;
+    color: #333 !important;
     text-transform: capitalize !important;
 }
 

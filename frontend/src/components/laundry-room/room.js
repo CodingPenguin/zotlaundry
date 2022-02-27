@@ -5,16 +5,18 @@ import { DataGrid } from '@mui/x-data-grid';
 import Button from '@mui/material/Button';
 
 const washColumns = [
-  { field: 'number', headerName: 'Number'},
-  { field: 'status', headerName: 'Status'},
+  { field: 'number', headerName: 'Number', flex: 0},
+  { field: 'status', headerName: 'Status', flex: 0},
   {
     field: 'timeStart',
     headerName: 'Time Start',
-    type: 'number'
+    type: 'number', 
+    flex: 0
   },
   { field: 'timeLeft', 
     headerName: 'Time Left', 
-    type: 'number'
+    type: 'number', 
+    flex: 0
   },
 ];
 
@@ -26,16 +28,18 @@ const washRows = [
 ];
 
 const dryColumns = [
-  { field: 'number', headerName: 'Number' },
-  { field: 'status', headerName: 'Status' },
+  { field: 'number', headerName: 'Number', flex: 0 },
+  { field: 'status', headerName: 'Status', flex: 0 },
   {
     field: 'timeStart',
     headerName: 'Time Start',
-    type: 'number'
+    type: 'number', 
+    flex: 0
   },
   { field: 'timeLeft', 
     headerName: 'Time Left', 
-    type: 'number'
+    type: 'number', 
+    flex: 0
   },
 ];
 
@@ -51,7 +55,7 @@ export default function LaundryPage() {
 return (
       <div>
         <div class="flex-bottom-middle">
-          <h1>Choose a Machine:</h1>
+          <h1 className='header'>Current Machines</h1>
         </div>
         <div className="flex-center">
           <div className="box">

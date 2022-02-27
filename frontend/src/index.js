@@ -11,8 +11,8 @@ ReactDOM.render(
   <Router>
     <NavBar/>
       <Routes>
-        <Route path="/" element ={ <HomePage />}></Route>
-        {/* <Route path="/" element ={ <LaundryPage />}></Route> */}
+        {/* <Route path="/" element ={ <HomePage />}></Route> */}
+        <Route path="/" element ={ <LaundryPage />}></Route>
       </Routes>
     <Footer/>
   </Router>,
