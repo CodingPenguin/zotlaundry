@@ -68,7 +68,7 @@ export default function HomePage(){
 
                                     <div class="col-md-12">
                                         <select name="floor" class="form-select mt-3" onChange={inputsHandler}>
-                                            <option name="floor" value="1">Floor 1</option>
+                                            <option name="floor" value="1">Choose Floor</option>
                                             <option name="floor" value="2">Floor 2</option>
                                             <option name="floor" value="3">Floor 3</option>
                                             <option name="floor" value="4">Floor 4</option>
