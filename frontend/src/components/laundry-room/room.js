@@ -5,8 +5,8 @@ import { DataGrid } from '@mui/x-data-grid';
 import Button from '@mui/material/Button';
 
 const washColumns = [
-  { field: 'number', headerName: 'Number'},
-  { field: 'status', headerName: 'Status'},
+  { field: 'number', headerName: 'Number', flex: 0},
+  { field: 'status', headerName: 'Status', flex: 0},
   {
     field: 'timeStart',
     headerName: 'Time Start',
@@ -26,8 +26,8 @@ const washRows = [
 ];
 
 const dryColumns = [
-  { field: 'number', headerName: 'Number' },
-  { field: 'status', headerName: 'Status' },
+  { field: 'number', headerName: 'Number', flex:0 },
+  { field: 'status', headerName: 'Status', flex:0 },
   {
     field: 'timeStart',
     headerName: 'Time Start',

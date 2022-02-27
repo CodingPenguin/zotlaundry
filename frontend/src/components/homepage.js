@@ -1,5 +1,5 @@
 import "./initialpage.css";
-import { Card, Jumbotron } from "react-bootstrap"
+import { Button } from "react-bootstrap"
 import { useState } from "react";
 import axios from "axios"
 
@@ -9,6 +9,20 @@ export default function HomePage(){
         floor: ""
     })
 
+    function check_all_fields_set(e)
+    {
+        if (inputField.community == "" || inputField.floor == "")
+        {
+            e.preventDefault()
+            alert('You must select a community and floor number before proceeding!')
+        }
+
+        else{
+            // console.log('Here')
+            submit()
+        }
+
+    }
     const inputsHandler = (e) =>{
         setInputField(prev => ({...prev, [e.target.name]: e.target.value}) )
     }
@@ -43,7 +57,7 @@ export default function HomePage(){
                             <div class="form-items">
                                 <h3>Laundry Room Selector</h3>
                                 <p>Fill in the data below.</p>
-                                <form class="requires-validation"  onSubmit={submit} noValidate>
+                                <form class="requires-validation" noValidate>
 
                                     <input type="radio" class="btn-check" name="community" id="me" value="me" autocomplete="off" onChange={inputsHandler}/>
                                     <label class="btn btn-sm btn-outline-secondary" for="me">Middle Earth</label>
@@ -65,7 +79,7 @@ export default function HomePage(){
                                     </div>
 
                                     <div class="form-button mt-3">
-                                        <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+                                        <Button onClickid="submit" href="/laundrypage" onClick={check_all_fields_set} type="submit" class="btn btn-primary">Submit</Button>
                                     </div>
                                 </form>
                             </div>
