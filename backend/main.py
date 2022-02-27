@@ -24,8 +24,13 @@ CORS(app)
 def handle_reqs():
     if request.method == 'GET':
         try:
-            data = json.loads(request.data)
-            return jsonify(handle_get_machines(machines, data)), 200
+            query = dict(request.args)
+            
+            if 'floor' in query:
+                query['floor'] = int(query['floor'])
+                
+            return jsonify(handle_get_machines(machines, query)), 200
+        
         except Exception as e:
             logger.error(e)
             return jsonify(e), 500
@@ -33,8 +38,8 @@ def handle_reqs():
     elif request.method == 'POST':
         try:
             data = json.loads(request.data)
-            logger.debug(data)
             return jsonify(handle_post_machines(machines, data)), 201
+        
         except Exception as e:
             logger.error(e)
             return jsonify(e), 500
@@ -43,6 +48,7 @@ def handle_reqs():
         try:
             data = json.loads(request.data)
             return jsonify(handle_patch_machines(machines, data)), 200
+        
         except Exception as e:
             logger.error(e)
             return jsonify(e), 500
