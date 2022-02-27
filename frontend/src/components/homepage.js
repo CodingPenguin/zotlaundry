@@ -1,26 +1,28 @@
 import "./initialpage.css";
 import { Button } from "react-bootstrap"
 import { useState } from "react";
-import axios from "axios"
-import brand from "./ZotLaundry.png"
+import { useNavigate } from 'react-router-dom';
+// import axios from "axios"
+import brand from "./ZotLaundry.png";
 
 export default function HomePage(){
     const [inputField, setInputField] = useState({
         community: "",
-        floor: ""
+        floor: 0,
     })
+    let navigate = useNavigate();
 
-    function check_all_fields_set(e)
-    {
-        if (inputField.community == "" || inputField.floor == "")
+    function check_all_fields_set(e) {
+        e.preventDefault()
+        if (inputField.community === "" || inputField.floor === "")
         {
             e.preventDefault()
             alert('You must select a community and floor number before proceeding!')
         }
 
-        else{
+        else {
             // console.log('Here')
-            submit()
+            submit(e)
         }
 
     }
@@ -32,18 +34,12 @@ export default function HomePage(){
     
     const submit = (e) => {
         e.preventDefault()
-        let url = `http://127.0.0.1:5000/machines?community=${inputField.community}&floor=${inputField.floor}`
-        console.log(url)
-        axios.get(url)
-            .then(response => console.log(response.json()))
-            .catch(error => console.log(error))
+        // console.log(url)
+        // axios.get(url)
+        //     .then(response => console.log(response.json()))
+        //     .catch(error => console.log(error))
         localStorage.setItem("inputField", JSON.stringify(inputField))
-        // axios.post(url)
-        //     .then(response => console.log(response.json()))
-
-        // axios.patch(url)
-        //     .then(response => console.log(response.json()))
-        
+        navigate('/laundrypage');
     }
     
     return(
@@ -59,13 +55,13 @@ export default function HomePage(){
                         <div class="form-content">
                             <div class="form-items">
                                 <h3>Laundry Room Selector</h3>
-                                <form class="requires-validation" noValidate>
+                                <form class="requires-validation" onSubmit={check_all_fields_set} noValidate>
 
                                     <input type="radio" class="btn-check" name="community" id="me" value="me" autocomplete="off" onChange={inputsHandler}/>
-                                    <label class="btn btn-sm btn-outline-secondary" for="me">Middle Earth</label>
+                                    <label class="btn btn-sm btn-outline-secondary left" for="me">Middle Earth</label>
 
                                     <input type="radio" class="btn-check" name="community" id="mc" value="mc" autocomplete="off" onChange={inputsHandler}/>
-                                    <label class="btn btn-sm btn-outline-secondary" for="mc">Mesa Court</label>
+                                    <label class="btn btn-sm btn-outline-secondary right" for="mc">Mesa Court</label>
 
 
                                     <div class="col-md-12">
@@ -81,7 +77,7 @@ export default function HomePage(){
                                     </div>
 
                                     <div class="form-button mt-3">
-                                        <Button onClickid="submit" href="/laundrypage" onClick={check_all_fields_set} type="submit" class="btn btn-primary">Submit</Button>
+                                        <Button onClickid="submit" type="submit" class="btn btn-primary">Submit</Button>
                                     </div>
                                 </form>
                             </div>
