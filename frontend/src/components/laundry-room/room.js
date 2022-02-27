@@ -249,10 +249,10 @@ export default function LaundryPage() {
 
               <h3 class="modal-headers">Type</h3>
               <input type="radio" class="btn-check" name="type" value="washer" id="new-washer" autocomplete="off" onChange={modalInputsHandler} required/>
-              <label class="btn btn-sm btn-outline-secondary left" for="new-washer">New Washer</label>
+              <label class="btn btn-sm btn-outline-secondary left" for="new-washer">Washer</label>
 
               <input type="radio" class="btn-check" name="type" value="dryer" id="new-dryer" autocomplete="off" onChange={modalInputsHandler} required/>
-              <label class="btn btn-sm btn-outline-secondary" for="new-dryer">New Dryer</label>
+              <label class="btn btn-sm btn-outline-secondary" for="new-dryer">Dryer</label>
 
 
               <h3 class="modal-headers">Status</h3>
@@ -276,7 +276,7 @@ export default function LaundryPage() {
               <h3 class="modal-headers">Remaining Time</h3>
 
               <div class="col-md-8">
-                  <input class="form-control" type="text" name="remainingTime" onChange={modalInputsHandler} placeholder="Enter remaining time in minutes" required/>
+                  <input class="form-control" type="text" name="remainingTime" onChange={modalInputsHandler} placeholder="Enter time in minutes" required/>
               </div>
             </form>
 
