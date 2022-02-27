@@ -61,7 +61,10 @@ export default function LaundryPage() {
   const [show, setShow] = useState(false);
   
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleShow = () => {
+    setShow(true)
+    console.log(show)
+  }
 
 
   const [washRows, setWashRows] = useState([]);
@@ -117,8 +120,8 @@ export default function LaundryPage() {
 
   return (
      <>
-        <div>
-          <div class="flex-bottom-middle" style={{maxHeight : "90vh", overflow:'scroll'}}>
+        <div  style={{maxHeight : "80vh", overflow:'scroll'}}>
+          <div class="flex-bottom-middle">
             <h1 className='header'>{community}, Floor {floor}</h1>
           </div>
           <div className="flex-center">
