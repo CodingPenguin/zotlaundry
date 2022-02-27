@@ -14,10 +14,8 @@ html, body {
     border: solid;
     border-radius: 15px;
     border-color: black;
-    --box-width: 60vh;
-    --box-height: 70vh;
-    width: var(--box-width);
-    height: var(--box-height);
+    width: 60vh;
+    height: 60vh;
     padding: 2%;
     margin: 2%;
 }
@@ -25,4 +23,14 @@ html, body {
 .box-table {
     width: 100%;
     height: 80%;
+}
+
+.button-form {
+    padding: 2%;
+    width: 5%;
+    height: 2%
+}
+
+#divider {
+    margin: 2%
 }
