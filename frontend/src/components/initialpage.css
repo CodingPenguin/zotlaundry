@@ -107,14 +107,14 @@ html, body {
     display: flex;
     justify-content: center;
     border-radius: 5px;
-    background-color: #33A16E;
+    background-color: #fac04d;
     outline: none;
     border: 0px;
      box-shadow: none;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active{
-    background-color: #236E4B;
+    background-color: #faad13;
     outline: none !important;
     border: none !important;
      box-shadow: none;
