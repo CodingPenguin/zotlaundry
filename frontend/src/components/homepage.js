@@ -12,7 +12,7 @@ export default function HomePage(){
 
     function check_all_fields_set(e)
     {
-        if (inputField.community == "" || inputField.floor == "")
+        if (inputField.community === "" || inputField.floor === "")
         {
             e.preventDefault()
             alert('You must select a community and floor number before proceeding!')
@@ -62,10 +62,10 @@ export default function HomePage(){
                                 <form class="requires-validation" noValidate>
 
                                     <input type="radio" class="btn-check" name="community" id="me" value="me" autocomplete="off" onChange={inputsHandler}/>
-                                    <label class="btn btn-sm btn-outline-secondary" for="me">Middle Earth</label>
+                                    <label class="btn btn-sm btn-outline-secondary left" for="me">Middle Earth</label>
 
                                     <input type="radio" class="btn-check" name="community" id="mc" value="mc" autocomplete="off" onChange={inputsHandler}/>
-                                    <label class="btn btn-sm btn-outline-secondary" for="mc">Mesa Court</label>
+                                    <label class="btn btn-sm btn-outline-secondary right" for="mc">Mesa Court</label>
 
 
                                     <div class="col-md-12">

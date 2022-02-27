@@ -48,7 +48,7 @@ html, body {
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
-    text-align: left;
+    text-align: center;
     -webkit-transition: all 0.4s ease;
     transition: all 0.4s ease;
 }
@@ -161,3 +161,28 @@ html, body {
 #select-community {
     text-align: center
 }
+
+.mr-auto{
+    margin-left: 100vh;
+}
+
+.btn.left {
+    margin-right: 10px;
+}
+
+.btn.right {
+    margin-left: 10px;
+}
+
+.btn-sm:hover {
+    background-color: #129df8;
+}
+
+.btn-check:active + .btn-outline-secondary, .btn-check:checked + .btn-outline-secondary, .btn-outline-secondary.active, .btn-outline-secondary.dropdown-toggle.show, .btn-outline-secondary:active {
+    background: #097db8;
+    border-color: none !important;
+    box-shadow: none;
+}
+
+/* linear-gradient(to left, #1b81b4, #097db8, #097db8) */
+
