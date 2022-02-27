@@ -5,18 +5,16 @@ import { DataGrid } from '@mui/x-data-grid';
 import Button from '@mui/material/Button';
 
 const washColumns = [
-  { field: 'number', headerName: 'Number', width: 100 },
-  { field: 'status', headerName: 'Status', width: 100 },
+  { field: 'number', headerName: 'Number'},
+  { field: 'status', headerName: 'Status'},
   {
     field: 'timeStart',
     headerName: 'Time Start',
-    type: 'number',
-    width: 100,
+    type: 'number'
   },
   { field: 'timeLeft', 
     headerName: 'Time Left', 
-    type: 'number', 
-    width: 100 
+    type: 'number'
   },
 ];
 
@@ -28,18 +26,16 @@ const washRows = [
 ];
 
 const dryColumns = [
-  { field: 'number', headerName: 'Number', width: 100 },
-  { field: 'status', headerName: 'Status', width: 100 },
+  { field: 'number', headerName: 'Number' },
+  { field: 'status', headerName: 'Status' },
   {
     field: 'timeStart',
     headerName: 'Time Start',
-    type: 'number',
-    width: 100,
+    type: 'number'
   },
   { field: 'timeLeft', 
     headerName: 'Time Left', 
-    type: 'number', 
-    width: 100 
+    type: 'number'
   },
 ];
 
@@ -54,7 +50,7 @@ export default function LaundryPage() {
 
 return (
       <div>
-        <div class="flex-center">
+        <div class="flex-bottom-middle">
           <h1>Choose a Machine:</h1>
         </div>
         <div className="flex-center">
@@ -82,9 +78,9 @@ return (
           </div>
         </div>
         <div className="flex-center">
-          <Button variant="contained" className="button-form">Add Washer</Button>
+          <Button variant="contained" className="button-form">Add Machine</Button>
           <div id="divider"></div>
-          <Button variant="contained" className="button-form">Update Washer</Button>
+          <Button variant="contained" className="button-form">Update Machine</Button>
         </div>
       </div>
     );

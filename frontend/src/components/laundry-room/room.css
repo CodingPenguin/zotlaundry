@@ -9,6 +9,11 @@ html, body {
     align-items: center;
 }
 
+.flex-bottom-middle {
+    display: flex;
+    justify-content: center;
+}
+
 .box {
     background: white;
     border: solid;
@@ -28,9 +33,10 @@ html, body {
 .button-form {
     padding: 2%;
     width: 5%;
-    height: 2%
+    height: 2%;
+    text-transform: capitalize !important;
 }
 
 #divider {
-    margin: 2%
+    margin: 1%
 }
