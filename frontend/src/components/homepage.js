@@ -44,7 +44,7 @@ export default function HomePage(){
     
     return(
         <>
-        <div style={{maxHeight : "90vh"}}>
+        <div style={{maxHeight : "90vh", overflow:'scroll'}}>
 
             <div class="form-body">
                 <div class="row">
